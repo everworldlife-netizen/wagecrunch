@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Geist Font Declarations ─── */
+@font-face {
+  font-family: 'Geist';
+  src: url('./Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --navy: #0B1E3C;
+    --navy-light: #1A3A5C;
+    --emerald: #047857;
+    --emerald-bg: #ECFDF5;
+    --emerald-dark: #065F46;
+    --blue: #2563EB;
+    --blue-light: #DBEAFE;
+    --orange: #F97316;
+    --orange-bg: #FFF7ED;
+    --red: #DC2626;
+    --red-bg: #FEF2F2;
+    --bg: #F8FAFC;
+    --card: #FFFFFF;
+    --border: #E2E8F0;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --text-white: #FFFFFF;
+
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card-hsl: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 216 69% 15%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 216 69% 15%;
+    --radius: 0.625rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Geist', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "ss01" on, "tnum" on;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Apply tabular-nums to all numeric elements */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" on;
+  }
+}
+
+@layer components {
+  .card-base {
+    @apply bg-white border border-[#E2E8F0] rounded-xl p-6 shadow-card;
+  }
+
+  .card-interactive {
+    @apply bg-white border border-[#E2E8F0] rounded-xl p-6 shadow-card transition-all duration-200 ease-out;
+  }
+
+  .card-interactive:hover {
+    @apply shadow-card-hover;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary {
+    @apply h-12 bg-navy text-white rounded-lg font-semibold text-[15px] px-6 transition-all duration-150 ease-out;
+  }
+
+  .btn-primary:hover {
+    @apply bg-navy-light;
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-secondary {
+    @apply h-11 bg-white border border-[#E2E8F0] text-[#0F172A] rounded-lg font-medium text-sm transition-all duration-150 ease-out;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-[#F8FAFC] border-navy;
+  }
+
+  .input-base {
+    @apply h-11 bg-white border border-[#E2E8F0] rounded-lg px-3 text-sm text-[#0F172A] transition-all duration-150 ease-out;
+  }
+
+  .input-base:focus {
+    @apply border-navy outline-none;
+    box-shadow: 0 0 0 3px rgba(11, 30, 60, 0.08);
+  }
+
+  .input-base::placeholder {
+    @apply text-[#64748B];
+  }
+
+  .pill {
+    @apply h-7 px-3 rounded-full text-[13px] font-medium inline-flex items-center justify-center;
+  }
+
+  .pill-healthy {
+    @apply bg-[#ECFDF5] text-[#065F46];
+  }
+
+  .pill-caution {
+    @apply bg-[#FFF7ED] text-[#C2410C];
+  }
+
+  .pill-stressed {
+    @apply bg-[#FEF2F2] text-[#B91C1C];
+  }
+
+  .pill-info {
+    @apply bg-[#DBEAFE] text-[#1D4ED8];
+  }
+
+  .container-page {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12;
+  }
+}
